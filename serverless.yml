@@ -1,0 +1,32 @@
+service: python-lambda-api-service
+provider:
+  name: aws
+  runtime: python3.9
+  cors: true
+
+functions:
+  hello:
+    handler: src/handlers/hello.main
+    events:
+      - httpApi:
+          method: GET
+          path: /hello/{name?}
+
+  debug:
+    handler: src/handlers/debug.main
+    events:
+      - httpApi:
+          method: GET
+          path: /debug/{default*}
+
+  catchAll:
+    handler: src/handlers/404.main
+    events:
+      - httpApi: '*'
+
+plugins:
+  - serverless-python-requirements
+  - serverless-offline
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux

@@ -92,3 +92,6 @@ path parameters: *
 query paramters: *
 ```
 
+# Reference Material
+
+serverless.yml api reference: https://www.serverless.com/framework/docs/providers/aws/guide/serverless.yml/

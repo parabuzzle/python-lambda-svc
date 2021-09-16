@@ -23,14 +23,14 @@ bash run_tests.sh
 
 ## hello
 
+A basic hello world handler.
+
 ```
 handler source: src/handlers/hello.py
 API path: /hello
 path parameters: name
 query paramters: salutation
 ```
-
-A basic hello world handler.
 
 ### examples
 
@@ -51,6 +51,10 @@ response: 'lo bob'
 
 ## debug
 
+Returns a whole slew of information about your session and request. This endpoint makes it easy to see what you have access to inside your handler functions
+
+**YOU SHOULD REMOVE THIS ENDPOINT BEFORE GOING TO PRODUCTION!**
+
 ```
 handler source: src/handlers/debug.py
 API path: /debug
@@ -58,11 +62,9 @@ path parameters: *
 query paramters: *
 ```
 
-Returns a whole slew of information about your session and request. This endpoint makes it easy to see what you have access to inside your handler functions
-
-**YOU SHOULD REMOVE THIS ENDPOINT BEFORE GOING TO PRODUCTION!**
-
 ## 404
+
+This handler is your catch all handler.
 
 ```
 handler source: src/handlers/404.py
@@ -71,4 +73,3 @@ path parameters: *
 query paramters: *
 ```
 
-This handler is your catch all handler.

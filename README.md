@@ -15,8 +15,27 @@ serverless offline
 
 # Run Tests
 
+  * Lints the code against pep8 standards.
+  * Runs Unit Tests
+  * Displays the Coverage Report
+
 ```
 bash run_tests.sh
+```
+
+# Deploy to AWS
+
+Deploy to AWS
+
+Requires Docker
+
+You must set the following env variables:
+
+  * `AWS_ACCESS_KEY_ID`
+  * `AWS_SECRET_ACCESS_KEY`
+
+```
+serverless deploy --stage production --verbose
 ```
 
 # Endpoints

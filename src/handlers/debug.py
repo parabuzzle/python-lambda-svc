@@ -1,13 +1,12 @@
 import os
 import json
 
-from ..lib import query_parameters, path_parameters
+from src.lib import query_parameters
 
 def main(event, context):
 
     response = {
         'queryParameters': query_parameters(event),
-        'pathParameters': path_parameters(event),
         'aws': {
             'region': os.environ['AWS_REGION'],
             'default region': os.environ['AWS_DEFAULT_REGION'],

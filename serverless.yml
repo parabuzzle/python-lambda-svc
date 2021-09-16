@@ -1,8 +1,15 @@
 service: python-lambda-api-service
+
+package:
+  exclude:
+    - node_modules/**
+    - .gitignore
+    - .git/**
+    - .idea/**
+
 provider:
   name: aws
-  runtime: python3.9
-  cors: true
+  runtime: python3.8
 
 functions:
   hello:
@@ -10,14 +17,17 @@ functions:
     events:
       - httpApi:
           method: GET
-          path: /hello/{name?}
+          path: '/hello/{name}'
+      - httpApi:
+          method: GET
+          path: '/hello'
 
   debug:
     handler: src/handlers/debug.main
     events:
       - httpApi:
           method: GET
-          path: /debug/{default*}
+          path: /debug
 
   catchAll:
     handler: src/handlers/404.main
@@ -27,6 +37,7 @@ functions:
 plugins:
   - serverless-python-requirements
   - serverless-offline
+
 custom:
   pythonRequirements:
     dockerizePip: non-linux
